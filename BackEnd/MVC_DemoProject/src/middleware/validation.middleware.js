@@ -3,34 +3,29 @@
 // 2 assignment Expression
 // 3 hoisted declared function
 
+import { body,validationResult } from "express-validator";
 
-
-const validateNewItem = (req,res,next)=>{
+const validateNewItem = async (req, res, next) => {
     // validate data
-    const{name,price,imageUrl} = req.body;
-    let errors=[];
-    if(!name || name.trim()=='')
-    {
-        errors.push("Name is empty");
-    }
-    
-    if(!price || parseFloat(price)<1)
-    {
-        errors.push("Price must be positive value");
-    }
+    // 1. setup rules for validation
+    // 2. run those rules 
+    // 3. check if there are any errors after running the rules 
 
-    try{
-        const validUrl = new URL(imageUrl);
-    }
-    catch(err)
-    {
-        errors.push("URL is invalid");
-    }
+    const rules = [
+        body("name").notEmpty().withMessage("Name is required"),
+        body("price").isFloat().withMessage({ gt: 0 }).withMessage("price should be positive value"),
+        body("imageUrl").isURL().withMessage("Invalid URL")
 
-    if(errors.length>0)
-    {
-        console.log(errors[0]);
-        return res.render("new-product",{errorMessage:errors[0]})
+
+    ];
+
+    await Promise.all(rules.map((rule)=>rule.run(req)));
+
+    let validationErrors = validationResult(req);
+
+    if (!validationErrors.isEmpty()) {
+        console.log(validationErrors.array()[0].msg );
+        return res.render("new-product", { errorMessage: validationErrors.array()[0].msg })
     }
     next();
 }

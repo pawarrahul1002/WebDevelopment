@@ -11,7 +11,8 @@ const server = express();
 // setup view engine
 server.use(express.urlencoded({extended:true}));
 server.set("view engine","ejs");
-server.set("views",path.join(path.resolve(),"MVC_DemoProject02","INVENTORY-MGMT","src",'views'))
+// console.log(path.resolve());
+server.set("views",path.join(path.resolve(),"BackEnd","MVC_DemoProject","src",'views'))
 server.use(ejsLayout);
 
 
