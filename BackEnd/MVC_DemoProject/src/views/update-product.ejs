@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Item Form</title>
+  <title>Update Product</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,22 +54,21 @@
     </div>
   <%}%>
 
-  <form action="/" method="POST">
-    <!-- <label for="id">ID:</label>
-    <input type="text" id="id" name="id" required> -->
-    <input type="hidden" id="id" name="id" value="<%=product?.id%>" required>
+  <form action="/update-product" method="POST">
+    <!-- <label for="id">ID:</label> -->
+    <input type="hidden" id="id" name="id" value="<%=product.id%>" required>
 
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="<%=product?.name%>" required>
+    <input type="text" id="name" name="name" value="<%=product.name%>" required>
 
     <label for="desc">Description:</label>
-    <textarea id="desc" name="desc" rows="4" required><%=product?.desc%></textarea>
+    <textarea id="desc" name="desc" rows="4" required><%=product.desc%></textarea>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" pattern="[0-9]+([.,][0-9]+)?" title="Enter a valid number" value="<%=product?.price%>"  required>
+    <input type="text" id="price" name="price" pattern="[0-9]+([.,][0-9]+)?" title="Enter a valid number" value="<%=product.price%>"  required>
 
     <label for="imageUrl">Image URL:</label>
-    <input type="text" id="imageUrl" name="imageUrl" value="<%=product?.imageUrl%>"  required>
+    <input type="text" id="imageUrl" name="imageUrl" value="<%=product.imageUrl%>"  required>
 
     <button type="submit">Add Item</button>
   </form>

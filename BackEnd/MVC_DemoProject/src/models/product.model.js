@@ -16,6 +16,36 @@ export default class ProductModel {
     products.push(newProduct);
     return products;
   }
+
+  static getById(id) {
+    return products.find((p) => p.id == id);
+  }
+
+  static updateProduct(prodObj) {
+    console.log(prodObj);
+    let index = products.findIndex((p) => p.id == prodObj.id);
+    products[index] = prodObj;
+  }
+
+  static deleteProduct(prodObj) {
+    console.log(prodObj);
+    let index = products.findIndex((p) => p.id == prodObj.id);
+    console.log(index);
+
+    if (index !== -1) {
+      // Check if the index is valid (product found)
+      products.splice(index, 1); // Use splice to remove the element at the specified index
+      // console.log("deleteProduct", products);
+    } else {
+      console.error("Product not found"); // Log an error if the product is not found
+    }
+  }
+
+
+  static getAll() {
+    return products;
+  }
+
 }
 
 var products = [

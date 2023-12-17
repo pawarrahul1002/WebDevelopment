@@ -6,6 +6,7 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,10 @@
                 </td>
                 <td>
                     <img width="100px" src="<%= product.imageUrl %>" />
+                </td>
+                <td>
+                    <a href="/update-product/<%= encodeURIComponent(product.id) %>" class="btn btn-warning">Update</a>
+                    <a href="/delete-product/<%= encodeURIComponent(product.id) %>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
 

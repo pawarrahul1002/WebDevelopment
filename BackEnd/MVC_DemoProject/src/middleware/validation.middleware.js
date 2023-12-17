@@ -4,6 +4,7 @@
 // 3 hoisted declared function
 
 import { body,validationResult } from "express-validator";
+// import ProductModel from '../models/product.model.js';
 
 const validateNewItem = async (req, res, next) => {
     // validate data
@@ -25,7 +26,9 @@ const validateNewItem = async (req, res, next) => {
 
     if (!validationErrors.isEmpty()) {
         console.log(validationErrors.array()[0].msg );
-        return res.render("new-product", { errorMessage: validationErrors.array()[0].msg })
+        // const productFound = ProductModel.getById(req.body.id);
+        // console.log(req.body.id);
+        return res.render("new-product", {product:null, errorMessage: validationErrors.array()[0].msg })
     }
     next();
 }
