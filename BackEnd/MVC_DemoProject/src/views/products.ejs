@@ -30,7 +30,11 @@
                 </td>
                 <td>
                     <a href="/update-product/<%= encodeURIComponent(product.id) %>" class="btn btn-warning">Update</a>
-                    <a href="/delete-product/<%= encodeURIComponent(product.id) %>" class="btn btn-danger">Delete</a>
+
+                    <button class="btn btn-danger" onclick="deleteProduct('<%= product.id %>')">Delete</button>
+
+                    <!-- <a onclick="deleteProduct('<%=product.id%>')" class="btn btn-danger">Delete</a> -->
+                    <!-- <a href="/delete-product/<%= encodeURIComponent(product.id) %>" class="btn btn-danger">Delete</a> -->
                 </td>
             </tr>
 

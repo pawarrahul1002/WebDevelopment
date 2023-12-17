@@ -29,7 +29,7 @@ export default class ProductController {
         res.render("products", { products: products });
     }
 
-    getDeleteProduct(req,res)
+    postDeleteProduct(req,res)
     {
         const id = req.params.id;
         console.log(id);

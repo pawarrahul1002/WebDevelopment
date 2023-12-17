@@ -1,0 +1,66 @@
+<!-- views/blogs.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    <style>
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .blog-entry {
+            box-sizing: border-box;
+            width: 48%; /* Adjust as needed, accounting for margin and padding */
+            margin-bottom: 20px;
+            border: 1px solid #ddd; /* Add border for better visualization */
+            padding: 15px;
+            display: flex;
+        }
+
+        .blog-entry img {
+            max-width: 200px; /* Adjust as needed */
+            max-height: 200px; /* Adjust as needed */
+            object-fit: contain; 
+            margin-right: 15px;
+        }
+
+        .blog-entry div {
+            flex-grow: 1;
+        }
+
+        .blog-entry h2 {
+            margin-bottom: 10px;
+        }
+
+        .blog-entry p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Blog List</h1>
+
+    <div class="blog-container">
+        <% if (blogs && blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>
+                <div class="blog-entry">
+                    <img src="<%= blog.img %>" alt="<%= blog.title %> Image">
+                    <div>
+                        <h2><%= blog.title %></h2>
+                        <p><%= blog.description %></p>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No blogs available.</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

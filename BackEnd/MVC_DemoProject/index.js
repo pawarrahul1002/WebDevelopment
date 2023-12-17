@@ -3,14 +3,17 @@ import ProductController from './src/controllers/product.controller.js';
 import path from "path";
 import ejsLayout from "express-ejs-layouts";
 import validateNewItem from "./src/middleware/validation.middleware.js"
-import { url } from 'inspector';
-// const express = require('express');
+
 
 const server = express();
+
+server.use(express.static('public'));
+server.use(express.static('src/views'));
 
 // setup view engine
 server.use(express.urlencoded({extended:true}));
 server.set("view engine","ejs");
+
 // console.log(path.resolve());
 server.set("views",path.join(path.resolve(),"BackEnd","MVC_DemoProject","src",'views'));
 server.use(ejsLayout);
@@ -22,9 +25,8 @@ server.get('/', (productController.getProducts));
 server.get('/new', (productController.getAddForm));
 server.post('/',validateNewItem, productController.postNewProduct);
 server.post('/update-product',validateNewItem, productController.postUpdateProduct);
-server.get('/delete-product/:id',productController.getDeleteProduct);
+server.post('/delete-product/:id',productController.postDeleteProduct);
 server.get("/update-product/:id",productController.getUpdateProductView);
-server.use(express.static('src/views'));
 
 
 // return res.send('Welcome to Inventory App');
