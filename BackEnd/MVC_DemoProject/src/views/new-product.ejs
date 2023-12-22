@@ -69,7 +69,8 @@
     <input type="text" id="price" name="price" pattern="[0-9]+([.,][0-9]+)?" title="Enter a valid number" value="<%=product?.price%>"  required>
 
     <label for="imageUrl">Image URL:</label>
-    <input type="text" id="imageUrl" name="imageUrl" value="<%=product?.imageUrl%>"  required>
+    <!-- <input type="text" id="imageUrl" name="imageUrl" value="<%=product?.imageUrl%>"  required> -->
+    <input type="file" id="imageUrl" name="imageUrl"  accept="Images/*" />
 
     <button type="submit">Add Item</button>
   </form>
