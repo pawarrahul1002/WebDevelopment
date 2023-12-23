@@ -5,6 +5,7 @@ function deleteProduct(id) {
       'Are you sure you want to delete this product ?'
     );
     if (result) {
+      console.log("")
       fetch('/delete-product/' + id, {
         method: 'POST',
       }).then((res) => {

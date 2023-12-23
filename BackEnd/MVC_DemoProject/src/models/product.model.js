@@ -11,8 +11,9 @@ export default class ProductModel {
     return products;
   }
 
-  static add(prodObj) {
-    let newProduct = new ProductModel(products.length + 1, prodObj.name, prodObj.desc, prodObj.price, prodObj.imageUrl);
+  static add(name_,desc_,price_,imageUrl_) {
+    let newProduct = new ProductModel(  products.length + 1,name_,desc_,price_,imageUrl_);
+    console.log("new product :: ",newProduct.id,newProduct.name,newProduct.desc,newProduct.price,newProduct.imageUrl )
     products.push(newProduct);
     return products;
   }

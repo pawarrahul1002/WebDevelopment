@@ -14,6 +14,3 @@ const storageConfig = multer.diskStorage({
 export const uploadFile = multer({
   storage: storageConfig,
 });
-
-
-// export const uploadFile =  multer({storage:storageconfig});
