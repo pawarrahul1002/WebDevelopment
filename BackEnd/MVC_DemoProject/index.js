@@ -6,31 +6,33 @@ import validateNewItem from "./src/middleware/validation.middleware.js"
 import { uploadFile } from "./src/middleware/file-upload.middleware.js"
 
 
-const server = express();
+const app = express();
 console.log(path.resolve);
-server.use(express.static('public'));
-server.use(express.static('src/views'));
+app.use(express.static('public'));
+app.use(express.static('src/views'));
 
 // setup view engine
-server.use(express.urlencoded({ extended: true }));
-server.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 console.log(path.resolve());
-server.set("views", path.join(path.resolve(), "src", 'views')); // "MVC_DemoProject",
-server.use(ejsLayout);
+app.set("views", path.join(path.resolve(), "src", 'views')); // "MVC_DemoProject",
+app.use(ejsLayout);
 
 
 // create an instance of ProductController
 const productController = new ProductController();
-server.get('/', (productController.getProducts));
-server.get('/new', (productController.getAddForm));
-server.post('/', uploadFile.single("imageUrl"), validateNewItem, productController.postNewProduct);
-server.post('/update-product', validateNewItem, productController.postUpdateProduct);
-server.post('/delete-product/:id', productController.postDeleteProduct);
-server.get("/update-product/:id", productController.getUpdateProductView);
+app.get('/', (productController.getProducts));
+
+app.get('/new', (productController.getAddForm));
+
+app.post('/add-product', uploadFile.single("imageUrl"), validateNewItem, productController.postNewProduct);
+app.post('/update-product', validateNewItem, productController.postUpdateProduct);
+app.post('/delete-product/:id', productController.postDeleteProduct);
+app.get("/update-product/:id", productController.getUpdateProductView);
 
 
 // return res.send('Welcome to Inventory App');
-server.listen(3400, () => {
-    console.log('Server is listening on port 3400');
+app.listen(3400, () => {
+    console.log('app is listening on port 3400');
 });

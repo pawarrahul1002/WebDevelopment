@@ -28,9 +28,9 @@ export default class ProductModel {
     products[index] = prodObj;
   }
 
-  static deleteProduct(prodObj) {
-    console.log(prodObj);
-    let index = products.findIndex((p) => p.id == prodObj.id);
+  static deleteProduct(_id) {
+    // console.log(prodObj);
+    let index = products.findIndex((p) => p.id == _id);
     console.log(index);
 
     if (index !== -1) {

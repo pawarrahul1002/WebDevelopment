@@ -42,14 +42,14 @@ export default class ProductController {
         console.log("productFound :: ",productFound);
         if (productFound) {
             // 1 if product exists thne return view
-            ProductModel.deleteProduct(productFound);
+            ProductModel.deleteProduct(id);
             const products = ProductModel.getAll();
             res.render("products",{ products:products, errorMessage: null });
         }
         else 
         {
             // 2 return error that product not exists
-            res.status(401).send("Product not found");
+            return res.status(401).send("Product not found");
         }
     }
 
