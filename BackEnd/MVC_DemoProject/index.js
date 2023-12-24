@@ -1,5 +1,6 @@
 import express from 'express'
 import ProductController from './src/controllers/product.controller.js';
+import UserController from './src/controllers/user.controller.js';
 import path from "path";
 import ejsLayout from "express-ejs-layouts";
 import validateNewItem from "./src/middleware/validation.middleware.js"
@@ -22,9 +23,14 @@ app.use(ejsLayout);
 
 // create an instance of ProductController
 const productController = new ProductController();
+const userController = new UserController();
 app.get('/', (productController.getProducts));
 
 app.get('/new', (productController.getAddForm));
+app.get('/register', (userController.getRegister));
+app.post('/register', (userController.postRegister));
+app.get('/login', (userController.getLogin));
+app.post('/login', (userController.postLogin));
 
 app.post('/add-product', uploadFile.single("imageUrl"), validateNewItem, productController.postNewProduct);
 app.post('/update-product', validateNewItem, productController.postUpdateProduct);

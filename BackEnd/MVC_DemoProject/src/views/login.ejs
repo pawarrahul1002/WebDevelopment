@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Registration</title>
+    <!-- Add any additional styles or scripts as needed -->
+</head>
+
+<body>
+    <%if(errorMessage){%>
+      <div class="alert alert-danger" role="alert">
+        <%=errorMessage%>
+      </div>
+    <%}%>
+    <div class="container my-2">
+        <h1>Log In</h1>
+
+        <!-- Display registration form -->
+        <form action="/login" method="post" class="p-5">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password"
+                    placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Log In</button>
+        </form>
+    </div>
+
+    <!-- Add any additional scripts or closing tags as needed -->
+</body>
+
+</html>
