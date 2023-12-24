@@ -8,12 +8,12 @@ export default class ProductController {
         let products = ProductModel.get();
         // console.log(products);
         // return res.sendFile(path.join(path.resolve(),"MVC_DemoProject02","INVENTORY-MGMT","src",'views',"products.html" ));
-        res.render("products", { products: products });
+        res.render("products", { products: products, userEmail:req.session.userEmail });
     }
 
     getAddForm(req, res) 
     {
-        return res.render("new-product", {product:null, errorMessage: null });
+        return res.render("new-product", {product:null, errorMessage: null , userEmail:req.session.userEmail});
     }
 
     postNewProduct(req, res) 
@@ -23,7 +23,7 @@ export default class ProductController {
         const imageUrl = "images/"+req.file.filename;
         let products = ProductModel.add(name,desc,price,imageUrl);
         console.log("after adding new producct",products);
-        res.render("products", { products: products });
+        res.render("products", { products: products , userEmail:req.session.userEmail});
     }
 
     postUpdateProduct(req,res)
@@ -31,7 +31,7 @@ export default class ProductController {
         ProductModel.updateProduct(req.body);
         let products = ProductModel.getAll();
         products.forEach((p)=>console.log(p));
-        res.render("products", { products: products });
+        res.render("products", { products: products, userEmail:req.session.userEmail });
     }
 
     postDeleteProduct(req,res)
@@ -44,7 +44,7 @@ export default class ProductController {
             // 1 if product exists thne return view
             ProductModel.deleteProduct(id);
             const products = ProductModel.getAll();
-            res.render("products",{ products:products, errorMessage: null });
+            res.render("products",{ products:products, errorMessage: null , userEmail:req.session.userEmail});
         }
         else 
         {
@@ -62,7 +62,7 @@ export default class ProductController {
         if (productFound) 
         {
             // 1 if product exists thne return view
-            res.render("update-product",{ product:productFound, errorMessage: null });
+            res.render("update-product",{ product:productFound, errorMessage: null , userEmail:req.session.userEmail });
         }
         else 
         {

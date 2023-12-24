@@ -3,7 +3,7 @@ export default class UserModel {
     constructor(_id, _name, _email, _password) {
         this.id = _id;
         this.name = _name;
-        this.emial = _email;
+        this.email = _email;
         this.password = _password;
     }
 
@@ -14,11 +14,10 @@ export default class UserModel {
     }
 
     static isValid(email, password) {
-        const result =  users.find((u) => (u.email == email, u.password == password));
+        console.log("users",users);
+        const result =  users.find((u) => (u.email === email && u.password === password));
         return result;
-        // users.push(newUser);
 
-        
     }
 
 }
