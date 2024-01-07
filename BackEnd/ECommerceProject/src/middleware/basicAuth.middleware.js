@@ -20,6 +20,7 @@ const basicAuthorizer = (req, res, next)=>{
 
     const user = UserModel.getAll().find(u=> u.email==creds[0] && u.password==creds[1]);
     if(user){
+        
         next();
     }
     else{
