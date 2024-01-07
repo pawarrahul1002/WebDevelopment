@@ -4,7 +4,7 @@ export default class ProductController{
     getAllProduct(req,res)
     {
         console.log("ProductController :: getAllProduct");
-        const products = ProductModel.GetAll();
+        const products = ProductModel.getAll();
         res.status(200).send(products);
     }
 
