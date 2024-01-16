@@ -13,7 +13,7 @@ const jwtAuth = (req,res,next)=>{
     try{
         // 3. check if token is valid 
         const payload = jwt.verify(token,"p9nFyMt36ffIZmym1CXPlSIlN6Hacg7Q");
-
+        req.userId = payload.userId;
         console.log(payload);
     }
     catch(err)

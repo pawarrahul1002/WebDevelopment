@@ -41,5 +41,12 @@ let users =[
         "email":"n1@gmail.com",
         "password":"123",
         "type":"seller"
+    },
+    {
+        "id":2,
+        "name":"n2",
+        "email":"n2@gmail.com",
+        "password":"1234",
+        "type":"customer"
     }
 ]

@@ -34,7 +34,7 @@ export default class ProductController {
 
   getOneProduct(req, res) {
     const id = req.params.id;
-    const product = ProductModel.getById(id);
+    const product = ProductModel.get(id);
     if (product) {
       return res.status(200).send(product);
     } else {

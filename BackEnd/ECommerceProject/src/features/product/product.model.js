@@ -1,3 +1,4 @@
+import { ApplicationError } from "../../error-handler/applicationError.js";
 import { UserModel }  from "../user/user.model.js";
 export default class ProductModel {
   constructor(id, name, desc, price, imageUrl, category, sizes) {
@@ -49,16 +50,16 @@ export default class ProductModel {
 
   static rateProduct(userId, productId, rate) 
   {
-    const isUserExist = UserModel.getAll().find((u) => u.id == userId);
-    if (!isUserExist) {
-      return "user not found";
-    }
-
     const isProductExist = products.find((p) => p.id == productId);
 
     if (!isProductExist) {
-      return "product not found";
+      throw new ApplicationError ("product not found",400);
     }
+    const isUserExist = UserModel.getAll().find((u) => u.id == userId);
+    if (!isUserExist) {
+      throw new ApplicationError("user not found",404);
+    }
+
 
     if (!isProductExist.rating) {
       isProductExist.rating = [];
