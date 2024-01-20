@@ -26,7 +26,7 @@ export default class CartItemModel {
     
     console.log("cartItemId :: ",cartItemId," userId :: ",userId);
     const cartItemIndex = cartItems.findIndex(i=>
-      i.id === cartItemId && i.userId === userId
+      i.id == cartItemId && i.userId == userId
     );
 
     console.log("cartItemIndex :: ",cartItemIndex," userId :: ",userId);

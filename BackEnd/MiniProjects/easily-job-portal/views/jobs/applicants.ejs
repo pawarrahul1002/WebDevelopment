@@ -1,0 +1,18 @@
+<!-- views/jobs/applicants.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Applicants</title>
+</head>
+<body>
+  <h1>Job Applicants</h1>
+  <ul>
+    <% applicants.forEach(applicant => { %>
+      <li><%= applicant.name %> - <%= applicant.email %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
+ 

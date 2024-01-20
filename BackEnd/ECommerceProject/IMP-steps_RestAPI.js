@@ -48,3 +48,29 @@
 // 4. Using Correct Request Methods: Utilizing appropriate HTTP methods (GET, POST, PUT, DELETE).
 // 5. Secured APIs: Implementing security measures, such as authentication and authorization.
 // 6. Use Naming Conventions for URL: Consistent and meaningful URL naming conventions.
+
+
+// REST API Best Practices
+
+// 1. Folder Structure: Recommended organization for your API project.
+// 2. Route Configuration: Configuring routes for your API.
+// 3. Creating APIs: Steps and best practices for API creation.
+// 4. Different API Methods: Overview of HTTP methods (GET, POST, PUT, DELETE).
+// 5. Middlewares: Explanation and usage in API development (e.g., authentication, logging).
+// 6. Route Parameters: Utilizing parameters in API routes.
+// 7. Query Parameters: Handling and using query parameters in API requests.
+// 8. Testing API Using Postman: Guide for testing and debugging with Postman.
+// 9. Securing API Using JWT Token: Implementing JWT for API security.
+// 10. Documenting API Using Swagger: Steps for documentation with Swagger.
+// 11. CORS (Cross-Origin Resource Sharing): Explanation and handling in your API.
+// 12. Logging: Best practices for tracking and analyzing activities.
+// 13. Error Handling: Strategies for effective error handling in API development.
+
+// REST API Best Practices
+
+// 1. Using Correct Status Codes: Proper HTTP status codes for clear communication.
+// 2. Error Handling: Strategies for effective error handling in API development.
+// 3. Input Validation: Ensuring data integrity through validation of incoming requests.
+// 4. Using Correct Request Methods: Utilizing appropriate HTTP methods (GET, POST, PUT, DELETE).
+// 5. Secured APIs: Implementing security measures, such as authentication and authorization.
+// 6. Use Naming Conventions for URL: Consistent and meaningful URL naming conventions.

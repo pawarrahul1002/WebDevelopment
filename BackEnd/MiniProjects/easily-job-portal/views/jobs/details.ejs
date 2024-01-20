@@ -1,0 +1,17 @@
+<!-- views/jobs/details.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details</title>
+</head>
+<body>
+  <h1>Job Details</h1>
+  <p><strong>Job Designation:</strong> <%= job.jobdesignation %></p>
+  <p><strong>Company Name:</strong> <%= job.companyname %></p>
+  <!-- Add other job details as needed -->
+  <a href="/jobs/<%= job.id %>/applicants">View Applicants</a>
+</body>
+</html>
+ 

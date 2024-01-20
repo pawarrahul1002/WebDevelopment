@@ -13,34 +13,33 @@ server.use(bodyParser.json());
 
 server.use(loggerMiddleware);
 
-
 // below code we are doing with cors librry
 // import cors from "cors";
 // let corsOptions = {
-  //   origin: "http://localhost:5000/",
-  // };
-  
-  // server.use(cors(corsOptions));
-  // server.use((req,res,next)=>{
-    //     res.header("Access-Control-Allow-Origin","http://localhost:5000");
-    //     res.header("Access-Control-Allow-Headers","*");
-    //     res.header("Access-Control-Allow-Methods","*");
-    
-    //     if(req.method=="OPTIONS")
-    //     {
-      //         return res.status(200);
-      //     }
-      //     next();
-      // })
-      
-      // server.get("/", (req, res) => {
-        //   res.send("welcome to ECommerce API's ");
-        // });
-        
-        const port = 3200;
-        server.get("/", (req, res) => {
-          res.send(`Server is listening on port ${port}`);
-        });
+//   origin: "http://localhost:5000/",
+// };
+
+// server.use(cors(corsOptions));
+// server.use((req,res,next)=>{
+//     res.header("Access-Control-Allow-Origin","http://localhost:5000");
+//     res.header("Access-Control-Allow-Headers","*");
+//     res.header("Access-Control-Allow-Methods","*");
+
+//     if(req.method=="OPTIONS")
+//     {
+//         return res.status(200);
+//     }
+//     next();
+// })
+
+// server.get("/", (req, res) => {
+//   res.send("welcome to ECommerce API's ");
+// });
+
+const port = 3200;
+server.get("/", (req, res) => {
+  res.send(`Server is listening on port ${port}`);
+});
 
 server.use("/api/products", jwtAuth, productRouter);
 server.use("/api/users", userRouter);
@@ -49,14 +48,13 @@ server.listen(port, () => {
   console.log("server is listening to", port);
 });
 
-server.use((err,req,res,next)=>{
+server.use((err, req, res, next) => {
   console.log(err);
-  if(err instanceof ApplicationError)
-  {
+  if (err instanceof ApplicationError) {
     res.status(err.code).send(err.message);
   }
   res.status(500).send("Something went wrong! Please try again later");
-})
+});
 server.use("/", (req, res) => {
   res.status(404).send("API not found");
 });
