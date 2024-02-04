@@ -1,33 +1,45 @@
 import CartItemModel from "./cart.model.js";
+import CartItemsRepository from "./cart.repository.js";
 
-export class CartItemsController{
-    add(req,res){
-        const {productId,quantity} = req.query;
-        const userId = req.userId;
-        CartItemModel.add(productId,userId,quantity);
-        res.status(201).send("Cart is updated");
-    }
+const cartRepository = new CartItemsRepository();
+export class CartItemsController {
+  //   constructor() {
+  //   }
 
-    get(req,res)
-    {
-        const userId = req.userId;
-        const items =   CartItemModel.getCartItems(userId);
-        res.status(201).send(items);
+  async add(req, res) {
+    try {
+      const { productId, quantity } = req.body;
+      const userId = req.userID;
+      await cartRepository.add(productId, userId, quantity);
+      res.status(201).send("Cart is updated");
+    } catch {
+      res.status(500).send("Something went wrong");
     }
+  }
 
-    delete(req,res)
-    {
-        const userId = req.userId;
-        const cartId = req.params.id;
-        const result = CartItemModel.delete(cartId,userId);
-        if(!result.status)
-        {
-            res.status(400).send(result.msg);
-        }
-        else
-        {
-            res.status(200).send(result.msg)
-        }
+  async get(req, res) {
+    try {
+      const userId = req.userID;
+      const items = await cartRepository.get(userId);
+      res.status(201).send(items);
+    } catch {
+      res.status(500).send("Something went wrong");
     }
-    
+  }
+
+  async delete(req, res) {
+    try {
+      const userId = req.userID;
+      const cartId = req.params.id;
+
+      const isDeleted = await cartRepository.delete(userId, cartId);
+      if (!isDeleted) {
+        res.status(201).send("Item not found");
+      } else {
+        res.status(201).send("Item deleted successfully");
+      }
+    } catch {
+      res.status(500).send("Something went wrong");
+    }
+  }
 }

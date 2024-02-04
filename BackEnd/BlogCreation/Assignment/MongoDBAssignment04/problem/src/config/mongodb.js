@@ -1,13 +1,14 @@
 import { MongoClient } from "mongodb";
 
-// const url = "mongodb://localhost:27017/ecomdb";
-const url = "mongodb://127.0.0.1:27017/ecomdb";
+// const url = "mongodb://localhost:27017";
+const url = "mongodb://127.0.0.1:27017";
+
 let client;
-export const connectToDb = () => {
+export const connectToMongoDB = () => {
   MongoClient.connect(url)
     .then((clientInstance) => {
       client = clientInstance;
-      console.log("Connected to mongodb");
+      console.log("Mongodb is connected");
     })
     .catch((err) => {
       console.log(err);
@@ -15,5 +16,5 @@ export const connectToDb = () => {
 };
 
 export const getDB = () => {
-  return client.db();
+  return client.db("ExpenZap");
 };
