@@ -1,4 +1,4 @@
-import CartItemModel from "../model/cart.model.js";
+import CartItemModel from "./cart.model.js";
 
 export class CartItemsController{
     add(req,res){

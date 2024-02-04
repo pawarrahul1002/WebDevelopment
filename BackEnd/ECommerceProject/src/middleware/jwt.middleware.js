@@ -11,8 +11,8 @@ const jwtAuth = (req, res, next) => {
 
   try {
     // 3. check if token is valid
-    const payload = jwt.verify(token, "p9nFyMt36ffIZmym1CXPlSIlN6Hacg7Q");
-    req.userId = payload.userId;
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.userID = payload.userId;
     console.log(payload);
   } catch (err) {
     // 4. return error

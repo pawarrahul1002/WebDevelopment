@@ -5,8 +5,8 @@ import upload from "../../middleware/fileupload.midddleware.js";
 
 
 
-const productController = new ProductController();
 const productRouter = express.Router();
+const productController = new ProductController();
 
 productRouter.get("/",productController.getAllProduct);
 productRouter.get("/filter",productController.filterProduct);

@@ -1,10 +1,12 @@
 import express from "express";
+import 'dotenv/config';
+import {connectToDb} from "./src/config/mongodb.js";
 import productRouter from "./src/features/product/product.routes.js";
 import userRouter from "./src/features/user/user.routes.js";
 import basciAuthorizer from "./src/middleware/basicAuth.middleware.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
 import bodyParser from "body-parser";
-import cartRouter from "./src/features/cart/routes/cart.routes.js";
+import cartRouter from "./src/features/cart/cart.routes.js";
 import loggerMiddleware from "./src/middleware/logger.middleware.js";
 import { ApplicationError } from "./src/error-handler/applicationError.js";
 const server = express();
@@ -40,11 +42,13 @@ const port = 3200;
 server.get("/", (req, res) => {
   res.send(`Server is listening on port ${port}`);
 });
-
+console.log("dbUrl",process.env.DB_URL);
 server.use("/api/products", jwtAuth, productRouter);
 server.use("/api/users", userRouter);
 server.use("/api/cartItems", jwtAuth, cartRouter);
+
 server.listen(port, () => {
+  connectToDb();
   console.log("server is listening to", port);
 });
 
