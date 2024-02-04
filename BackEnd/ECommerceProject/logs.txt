@@ -112,3 +112,15 @@
 {"level":"info","message":"/api/cartItems/65bf4462257a0e7e27940a42 - {}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/65bf4462257a0e7e27940a42 - {}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/65bf4462257a0e7e27940a42 - {}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd723d2bf4fb8f0162e87\",\"quantity\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd6d6d2bf4fb8f0162e86\",\"quantity\":7}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd6d6d2bf4fb8f0162e86\",\"quantity\":2}","service":"request-logging"}

@@ -7,6 +7,7 @@ export const connectToDb = () => {
   MongoClient.connect(url)
     .then((clientInstance) => {
       client = clientInstance;
+      createCounter(client.db());
       console.log("Connected to mongodb");
     })
     .catch((err) => {
@@ -16,4 +17,20 @@ export const connectToDb = () => {
 
 export const getDB = () => {
   return client.db();
+};
+
+// const createCounter= async (db)=>{
+//   const existingCounter = await db.collection("counters").findOne({_id:"CartItemId"});
+//   if(!existingCounter)
+//   {
+//     await db.collection("counters").insertOne({_id:"cartItemId",value:0});
+//   }
+
+const createCounter = async (db) => {
+  const existingCounter = await db
+    .collection("counters")
+    .findOne({ _id: "cartItemId" }); // Corrected casing here
+  if (!existingCounter) {
+    await db.collection("counters").insertOne({ _id: "cartItemId", value: 0 }); // Corrected casing here
+  }
 };
