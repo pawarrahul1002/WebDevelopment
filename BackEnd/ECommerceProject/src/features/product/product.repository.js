@@ -1,6 +1,7 @@
 import {ObjectId} from 'mongodb';
 import { getDB } from "../../config/mongodb.js";
 import { ApplicationError } from "../../error-handler/applicationError.js";
+import { json } from 'body-parser';
 
 class ProductRepository{
 
@@ -58,9 +59,33 @@ class ProductRepository{
             }
             if(category){
                 filterExpression.category=category;
-            }
-            return await collection.find(filterExpression).toArray();
+            }         
             
+            // logical operators 
+
+            // if(category)
+            // {
+            //     filterExpression.category={$and:[{category:category}, filterExpression]};
+            // }
+            // if(category)
+            // {
+            //     filterExpression.category={$or:[{category:category}, filterExpression]};
+            // }
+
+            // // ['cat1','cat2']
+            // categories = JSON.parse(categories.replace(/'/g,""));
+            // if(categories)
+            // {
+            //     filterExpression.category={$or:[{category:{$in:categories}}, filterExpression]};
+            // }
+            
+            // return await collection.find(filterExpression).toArray();
+
+            return await collection.find(filterExpression).project({name:1,price:1,_id:0,rating:{$slice:1}}).toArray();       
+            // to show only limited data we use .project({obj:1 to include and obj:0 to exclude})
+            // to include only 1st element of rating array rating:{$slice:1} for two rating:{$slice:2}
+            // to include last element of rating array rating:{$slice:-1}
+
         }catch(err){
             console.log(err);
             throw new ApplicationError("Something went wrong with database", 500);
