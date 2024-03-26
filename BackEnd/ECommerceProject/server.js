@@ -9,9 +9,11 @@ import bodyParser from "body-parser";
 import cartRouter from "./src/features/cart/cart.routes.js";
 import loggerMiddleware from "./src/middleware/logger.middleware.js";
 import { ApplicationError } from "./src/error-handler/applicationError.js";
+import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 const server = express();
 
 server.use(bodyParser.json());
+// const { json } = pkg;
 
 server.use(loggerMiddleware);
 
@@ -49,6 +51,7 @@ server.use("/api/cartItems", jwtAuth, cartRouter);
 
 server.listen(port, () => {
   connectToDb();
+  connectUsingMongoose();
   console.log("server is listening to", port);
 });
 

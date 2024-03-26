@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issues Page</title>
+  </head>
+
+  <body>
+    <h1>Issues for Project: <%= projectName %></h1>
+    <% if (issues.length===0) { %>
+    <p>There are no issues.</p>
+    <% } else { %>
+    <ul>
+      <% issues.forEach(issue=> { %>
+      <li>
+        <strong>Title:</strong>
+        <%= issue.title %><br />
+        <strong>Description:</strong>
+        <%= issue.description %><br />
+        <strong>Author:</strong>
+        <%= issue.author %><br />
+        <strong>Labels:</strong>
+        <%= issue.labels.join(', ') %><br />
+      </li>
+      <% }); %>
+    </ul>
+    <% } %>
+  </body>
+</html>

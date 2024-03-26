@@ -1,7 +1,7 @@
 import {ObjectId} from 'mongodb';
 import { getDB } from "../../config/mongodb.js";
 import { ApplicationError } from "../../error-handler/applicationError.js";
-import { json } from 'body-parser';
+// import { json } from 'body-parser';
 
 class ProductRepository{
 
@@ -149,6 +149,30 @@ class ProductRepository{
             throw new ApplicationError("Something went wrong with database", 500);
         }
     }
+
+    async avaragePricePerCategory()
+    {
+        try{
+            const db = getDB();
+            await db.collection(this.collection)
+            .aggregate([
+                {
+                    // stage 1 : get verge price per category
+                    $group:{
+                        _id:"$category",
+                        avaragePrice:{$avg:"$price"}
+                    }
+                }
+            ]).toArray();
+        }
+        catch(err)
+        {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);
+        }
+
+    }
+
 }
 
 export default ProductRepository;

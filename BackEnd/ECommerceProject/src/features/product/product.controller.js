@@ -97,4 +97,15 @@ export default class ProductController {
       return res.status(200).send("Something went wrong");
     }
   }
+
+  async avaragePrice(req,res,next)
+  {
+    try {
+      const result = await productRepository.avaragePricePerCategory();
+      res.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      return res.status(200).send("Something went wrong");
+    }
+  }
 }

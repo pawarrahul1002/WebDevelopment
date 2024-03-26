@@ -124,3 +124,11 @@
 {"level":"info","message":"/api/products - {}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd6d6d2bf4fb8f0162e86\",\"quantity\":7}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems - {\"productId\":\"65bdd6d6d2bf4fb8f0162e86\",\"quantity\":2}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"danav\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"danav\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"n4\",\"email\":\"n4@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}

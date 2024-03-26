@@ -1,0 +1,17 @@
+{
+  "name": "issuetrackerproject",
+  "version": "1.0.0",
+  "description": "project issue tracking app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RahulPawar",
+  "license": "ISC",
+  "dependencies": {
+    "express-ejs-layouts": "^2.5.1",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3"
+  },
+  "type": "module"
+}

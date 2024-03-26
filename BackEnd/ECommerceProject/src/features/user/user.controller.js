@@ -10,10 +10,26 @@ export default class UserController {
   //   this.userRepository = new UserRepository();
   // }
 
+  async resetPassword(req, res, next){
+    const {newPassword} = req.body;
+    const hashedPassword = await bcrypt.hash(newPassword, 12)
+    const userID = req.userID;
+    try{
+      await userRepository.resetPassword(userID, hashedPassword)
+      res.status(200).send("Password is updated");
+    }catch(err){
+      console.log(err);
+      console.log("Passing error to middleware");
+      next(err);
+    }
+  }
+
   async signUp(req, res) {
     console.log("signUp called");
     const { name, email, password, type } = req.body;
-    const newUser = new UserModel(name, email, password, type);
+    const hashedPassword = await bcrypt.hash(password, 12)
+   
+    const newUser = new UserModel(name, email, hashedPassword, type);
     const result = await userRepository.signUp(newUser); // UserModel.signUp(name, email, password, type);
     res.status(201).send(result);
   }
