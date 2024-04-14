@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let [counter, setCount] = useState(90);
+  let [counter, setCount] = useState(0);
 
   const addValue = () => {
     counter++;
@@ -11,6 +11,10 @@ function App() {
 
   const decreaseValue = () => {
     counter--;
+    if(counter<0)
+    {
+      counter=0;
+    }
     setCount(counter);
   };
 
@@ -30,6 +34,10 @@ function App() {
       counter++;
     } else {
       counter--;
+      if(counter<0)
+      {
+        counter=0;
+      }
     }
     setCount(counter);
   }
