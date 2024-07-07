@@ -1,0 +1,75 @@
+<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+    <!-- Sign-up form -->
+    <form
+      action="/create-account"
+      method="POST"
+      class="col-11 col-md-9 col-lg-5 p-2 mt-4 shadow rounded fw-semibold"
+      style="background-color: lightslategray;"
+    >
+      <!-- Title -->
+      <div class="text-center">
+        <h1 style="color: black;">Sign Up</h1>
+      </div>
+      <!-- Name input -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" required />
+      </div>
+      <!-- Email input -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <!-- Role selection -->
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select
+          class="form-select"
+          name="role"
+          aria-label="Default select example"
+        >
+          <option value="Employee" name="role">Employee</option>
+          <!-- <option value="Admin" name="role">Admin</option> As only admin can make employee to admin -->  
+        </select>
+      </div>
+      <!-- Password input -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+      <!-- Confirm Password input -->
+      <div class="mb-3">
+        <label for="cnf_password" class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="cnf_password"
+          id="cnf_password"
+          required
+        />
+      </div>
+      <!-- Submit button -->
+      <button type="submit" style="background-color: black;" class="btn btn-primary">Sign Up</button>
+      <!-- Link to sign-in page -->
+      <div class="text-center">
+        <p>
+          Already have an account,
+          <a style="color: bisque;" href="/">Sign In</a>
+          instead.
+        </p>
+      </div>
+    </form>
+  </div>
+  
